@@ -154,4 +154,14 @@ class GibddCarsAPIClient(BaseGibddAPIClient):
         return success_count > 0
 
 
-
+class GibddFinesAPIClient(BaseGibddAPIClient):
+    """
+    Класс для работы со штрафами.
+    """
+    def all_fine(self) -> Optional[Dict[str, Any]]:
+        """
+        Получение списка штрафов.
+        :return: Словарь с данными штрафов или None в случае ошибки
+        """
+        return self._make_request(method="GET",
+                                  endpoint=API_URL_FINES_LIST_PER_PAGE)
